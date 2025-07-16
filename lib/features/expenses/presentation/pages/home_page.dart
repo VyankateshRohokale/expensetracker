@@ -179,7 +179,7 @@ class HomePage extends ConsumerWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Total Balance',
+                              'Total Spent',
                               style: TextStyle(
                                 fontSize: screenWidth * 0.04,
                                 color: Colors.grey[600],
@@ -212,7 +212,7 @@ class HomePage extends ConsumerWidget {
                                   children: [
                                     Icon(Icons.arrow_downward, color: Colors.redAccent),
                                     Text(
-                                      'Expense',
+                                      'Income',
                                       style: TextStyle(
                                         fontSize: screenWidth * 0.035,
                                         color: Colors.grey[600],
@@ -235,7 +235,7 @@ class HomePage extends ConsumerWidget {
                                   children: [
                                     Icon(Icons.arrow_upward, color: Colors.green), // Changed to green for income
                                     Text(
-                                      'Income',
+                                      'Expense',
                                       style: TextStyle(
                                         fontSize: screenWidth * 0.035,
                                         color: Colors.grey[600],

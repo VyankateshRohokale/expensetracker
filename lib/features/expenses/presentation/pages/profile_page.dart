@@ -41,7 +41,7 @@ class ProfilePage extends StatelessWidget {
               ),
               SizedBox(height: screenHeight * 0.03),
               Text(
-                'Piyush',
+                'Binod',
                 style: TextStyle(
                   fontSize: screenWidth * 0.06,
                   fontWeight: FontWeight.bold,
@@ -50,7 +50,7 @@ class ProfilePage extends StatelessWidget {
               ),
               SizedBox(height: screenHeight * 0.01),
               Text(
-                'piyushrohokale2525@gmail.com',
+                'naam hai humara',
                 style: TextStyle(
                   fontSize: screenWidth * 0.04,
                   color: Colors.grey[600],

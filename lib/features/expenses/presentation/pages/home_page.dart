@@ -82,13 +82,14 @@ class HomePage extends ConsumerWidget {
     final expenseListAsyncValue = ref.watch(expenseListProvider);
     final balanceState = ref.watch(balanceProvider);
 
-    final List<String> avatars = [
-      'assets/images/avatar1.png',
-      'assets/images/avatar2.png',
-      'assets/images/avatar3.png',
-      'assets/images/avatar4.png',
-      'assets/images/avatar5.png',
-    ];
+    // Removed the avatars list as it's no longer used for "Send Again" section.
+    // final List<String> avatars = [
+    //   'assets/images/avatar1.png',
+    //   'assets/images/avatar2.png',
+    //   'assets/images/avatar3.png',
+    //   'assets/images/avatar4.png',
+    //   'assets/images/avatar5.png',
+    // ];
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -123,12 +124,12 @@ class HomePage extends ConsumerWidget {
                           Text(
                             'Welcome Back,',
                             style: TextStyle(
-                              fontSize: screenWidth * 0.04,
-                              color: Colors.white70,
+                              fontSize: screenWidth * 0.06,
+                              color: Colors.white,
                             ),
                           ),
                           Text(
-                            'Piyush',
+                            '', // Consider adding a user's name here if available
                             style: TextStyle(
                               fontSize: screenWidth * 0.05,
                               fontWeight: FontWeight.bold,
@@ -190,7 +191,7 @@ class HomePage extends ConsumerWidget {
                         SizedBox(height: screenHeight * 0.01),
                         Row(
                           children: [
-                            Icon(Icons.arrow_upward, color: Color(0xFF4CAF50)),
+                            Icon(Icons.arrow_upward, color: Color(0xFF4CAF50)), // This icon likely indicates positive flow
                             Text(
                               '\$ ${balanceState.totalBalance.toStringAsFixed(2)}',
                               style: TextStyle(
@@ -220,7 +221,7 @@ class HomePage extends ConsumerWidget {
                                   ],
                                 ),
                                 Text(
-                                  '\$${balanceState.totalIncome.toStringAsFixed(2)}',
+                                  '\$${balanceState.totalExpenses.toStringAsFixed(2)}', // Corrected to totalExpenses
                                   style: TextStyle(
                                     fontSize: screenWidth * 0.045,
                                     fontWeight: FontWeight.bold,
@@ -232,7 +233,7 @@ class HomePage extends ConsumerWidget {
                               children: [
                                 Row(
                                   children: [
-                                    Icon(Icons.arrow_upward, color: Colors.redAccent),
+                                    Icon(Icons.arrow_upward, color: Colors.green), // Changed to green for income
                                     Text(
                                       'Income',
                                       style: TextStyle(
@@ -243,7 +244,7 @@ class HomePage extends ConsumerWidget {
                                   ],
                                 ),
                                 Text(
-                                  '\$${balanceState.totalExpenses.toStringAsFixed(2)}',
+                                  '\$${balanceState.totalIncome.toStringAsFixed(2)}', // Corrected to totalIncome
                                   style: TextStyle(
                                     fontSize: screenWidth * 0.045,
                                     fontWeight: FontWeight.bold,
@@ -399,56 +400,6 @@ class HomePage extends ConsumerWidget {
                       },
                     );
                   },
-                ),
-                SizedBox(height: screenHeight * 0.03),
-
-                // Send Again (dummy section for UI)
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Send Again',
-                        style: TextStyle(
-                          fontSize: screenWidth * 0.05,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black87,
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          print('See all contacts');
-                        },
-                        child: Text(
-                          'See all',
-                          style: TextStyle(
-                            fontSize: screenWidth * 0.035,
-                            color: const Color(0xFF1E90FF),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: screenHeight * 0.01),
-                SizedBox(
-                  height: screenHeight * 0.1, // Fixed height for horizontal list
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
-                    itemCount: avatars.length, // Using a list of avatar paths
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 15.0),
-                        child: CircleAvatar(
-                          radius: screenWidth * 0.06,
-                          backgroundImage: AssetImage(avatars[index]),
-                          backgroundColor: Colors.grey[200],
-                        ),
-                      );
-                    },
-                  ),
                 ),
                 SizedBox(height: screenHeight * 0.1), // Spacing for FAB
               ],
